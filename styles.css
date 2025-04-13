@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.heart {
+    width: 10%;
+    height: 18%;
+    background-color: red;
+    position: relative;
+    transform: rotate(-60deg);
+    animation: beat 3s infinite alternate, changeColor 8s infinite alternate;
+}
+.lower-element.animate {
+    animation: moveUp 2s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+.heart::before {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    content: "";
+    z-index: 1;
+}
+
+.heart::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    content: "";
+    z-index: 1; 
+}
+.heart::before {
+    position: absolute;
+    top: -50%;
+    right: 0;
+    content: "";
+    z-index: 2;
+}
+.heart::after {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    content: "";
+    z-index: 2; 
+}          
+ 
+
+@keyframes beat {
+    from {
+        transform: scale(1) rotate(-100deg);
+    }
+    to {
+        transform: scale(1.5) rotate(-40deg);
+    }
+    100% {
+        transform: scale(2.5) rotate(-20deg);
+    }
+    50% {
+        transform: scale(2) rotate(-180deg);
+    }
+}
+
+@keyframes changeColor {
+    0% { background-color: red; }
+    50% { background-color: blue; }
+    100% { background-color: green; }
+58% { background-color: yellow; }
+
+}
